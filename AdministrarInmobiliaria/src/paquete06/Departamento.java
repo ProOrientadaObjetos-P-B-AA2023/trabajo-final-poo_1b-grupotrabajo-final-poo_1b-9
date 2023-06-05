@@ -80,4 +80,15 @@ public class Departamento {
         }
         return departamentos;
 }
+
+    @Override
+    public String toString() {
+        return "Departamento{" + "propietario=" + propietario +
+                ", precioMetroCuadrado=" + precioMetroCuadrado + ", numeroMetrosCuadrados=" 
+                + numeroMetrosCuadrados + ", valorAlicuotaMensual=" 
+                + valorAlicuotaMensual + ", costoFinal=" + costoFinal +
+                ", barrio=" + barrio + ", ciudad=" + ciudad + ", nombreEdificio=" + nombreEdificio +
+                ", ubicacionDepartamento=" + ubicacionDepartamento + ", constructora=" + constructora + '}';
+    }
+      
 }

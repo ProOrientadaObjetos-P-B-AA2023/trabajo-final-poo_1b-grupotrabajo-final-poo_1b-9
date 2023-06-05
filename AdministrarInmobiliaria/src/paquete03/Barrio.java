@@ -51,4 +51,11 @@ public class Barrio {
         }
         return barrio;
     }
+
+    @Override
+    public String toString() {
+        return "Barrio{" + "nombre=" + nombre+
+                '\''+ ", referencia=" + referencia + '\'' + '}';
+    }
+    
 }

@@ -37,13 +37,17 @@ public class Constructora {
 
 public static Constructora obtenerConstructora(String idEmpresa) {
     Constructora constructora = null;
-    try (DataInputStream dis = new DataInputStream(new FileInputStream("constructoras.dat"))) {
-        while (dis.available() > 0) {
-            String nombre = dis.readUTF();
-            String id = dis.readUTF();
-            if (id.equals(idEmpresa)) {
-                constructora = new Constructora(nombre, id);
-                break;
+    try (BufferedReader br = new BufferedReader(new FileReader("constructoras.dat"))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] data = line.split(",");
+            if (data.length == 2) {
+                String nombre = data[0];
+                String idc = data[1];
+                if (idc.equals(idEmpresa)) {
+                    constructora = new Constructora(nombre, idc);
+                    break;
+                }
             }
         }
     } catch (IOException e) {
@@ -51,4 +55,13 @@ public static Constructora obtenerConstructora(String idEmpresa) {
     }
     return constructora;
 }
+
+    
+    @Override
+    public String toString() {
+        return "Constructora{" +
+                "nombre='" + nombre + '\'' +
+                ", idEmpresa='" + idEmpresa + '\'' +
+                '}';
+    }
 }

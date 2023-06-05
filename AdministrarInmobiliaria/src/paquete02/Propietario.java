@@ -58,9 +58,18 @@ public class Propietario {
                     break;
                 }
             }
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
         return propietario;
     }
-}
+    @Override
+        public String toString() {
+            return "Propietario{" +
+                    "nombres='" + nombres + '\'' +
+                    ", apellidos='" + apellidos + '\'' +
+                    ", identificacion='" + identificacion + '\'' +
+                    '}';
+        }
+    }

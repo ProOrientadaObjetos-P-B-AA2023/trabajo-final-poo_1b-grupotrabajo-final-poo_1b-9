@@ -48,7 +48,7 @@ try (BufferedWriter writer = new BufferedWriter(new FileWriter("casas.dat", true
             e.printStackTrace();
     }
 }
-     public static List<Casa> obtenerCasas() {
+    public static List<Casa> obtenerCasas() {
         List<Casa> casas = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader("casas.dat"))) {
             String line;
@@ -59,7 +59,7 @@ try (BufferedWriter writer = new BufferedWriter(new FileWriter("casas.dat", true
                 double metrosCuadrados = Double.parseDouble(datos[2]);
                 String nombreBarrio = datos[3];
                 String nombreCiudad = datos[4];
-                int numeroCuartos = Integer.parseInt(datos[5]);
+                int numeroCuartos = Integer.parseInt(datos[8]);
                 String nombreConstructora = datos[6];
                 String idEmpresaConstructora = datos[7];
 
@@ -75,6 +75,15 @@ try (BufferedWriter writer = new BufferedWriter(new FileWriter("casas.dat", true
             e.printStackTrace();
         }
         return casas;
+    }
+
+    @Override
+    public String toString() {
+        return "Casa{" + "propietario=" + propietario + 
+                ", precioMetroCuadrado=" + precioMetroCuadrado + 
+                ", numeroMetrosCuadrados=" + numeroMetrosCuadrados + ", costoFinal=" + 
+                costoFinal + ", barrio=" + barrio + ", ciudad=" + ciudad + ", numeroCuartos=" + 
+                numeroCuartos + ", constructora=" + constructora + '}';
     }
 
 }
