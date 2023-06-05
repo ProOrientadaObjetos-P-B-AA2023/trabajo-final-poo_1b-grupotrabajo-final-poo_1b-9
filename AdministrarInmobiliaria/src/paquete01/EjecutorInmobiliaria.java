@@ -130,7 +130,7 @@ public class EjecutorInmobiliaria {
         System.out.println("Ingrese el nombre de la constructora: ");
         String nombre = scanner.nextLine();
         System.out.println("Ingrese el ID de la empresa: ");
-        int idEmpresa = scanner.nextInt();
+        String idEmpresa = scanner.nextLine();
 
         Constructora constructora = new Constructora(nombre, idEmpresa);
         constructora.guardarConstructora();
@@ -175,7 +175,7 @@ public class EjecutorInmobiliaria {
         System.out.println("Ingrese el nombre de la constructora: ");
         String nombreConstructora = scanner.nextLine();
         System.out.println("Ingrese el ID de la empresa: ");
-        int idEmpresa = scanner.nextInt();
+        String idEmpresa = scanner.nextLine();
         Constructora constructora = Constructora.obtenerConstructora(idEmpresa);
         if (constructora == null) {
             System.out.println("Constructora no encontrada.");
@@ -224,7 +224,7 @@ public class EjecutorInmobiliaria {
         System.out.println("Ingrese el nombre de la constructora: ");
         String nombreConstructora = scanner.nextLine();
         System.out.println("Ingrese el ID de la empresa: ");
-        int idEmpresa = scanner.nextInt();
+        String idEmpresa = scanner.nextLine();
         Constructora constructora = Constructora.obtenerConstructora(idEmpresa);
         if (constructora == null) {
             System.out.println("Constructora no encontrada.");
@@ -237,52 +237,64 @@ public class EjecutorInmobiliaria {
     }
 
 public static void listarPropietarios() {
-    List<Propietario> propietarios = Propietario.obtenerPropietario();
-    if (propietarios.isEmpty()) {
-        System.out.println("No se han ingresado propietarios.");
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Ingrese la identificación del propietario para listar: ");
+    String identificacion = scanner.nextLine();
+
+    Propietario propietario = Propietario.obtenerPropietario(identificacion);
+    if (propietario == null) {
+        System.out.println("No se encontró ningún propietario con la identificación proporcionada.");
     } else {
         System.out.println("Lista de Propietarios:");
-        for (Propietario propietario : propietarios) {
-            System.out.println(propietario);
-        }
+        System.out.println(propietario);
     }
 }
 
 public static void listarBarrios() {
-    List<Barrio> barrios = Barrio.obtenerBarrio();
-    if (barrios.isEmpty()) {
-        System.out.println("No se han ingresado barrios.");
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Ingrese el nombre del barrio para listar: ");
+    String nombreBarrio = scanner.nextLine();
+
+    Barrio barrio = Barrio.obtenerBarrio(nombreBarrio);
+    if (barrio == null) {
+        System.out.println("No se encontró ningún barrio con el nombre proporcionado.");
     } else {
         System.out.println("Lista de Barrios:");
-        for (Barrio barrio : barrios) {
-            System.out.println(barrio);
-        }
+        System.out.println(barrio);
     }
 }
 
 public static void listarCiudades() {
-    List<Ciudad> ciudades = Ciudad.obtenerCiudad();
-    if (ciudades.isEmpty()) {
-        System.out.println("No se han ingresado ciudades.");
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Ingrese el nombre de la ciudad para listar: ");
+    String nombreCiudad = scanner.nextLine();
+
+    Ciudad ciudad = Ciudad.obtenerCiudad(nombreCiudad);
+    if (ciudad == null) {
+        System.out.println("No se encontró ninguna ciudad con el nombre proporcionado.");
     } else {
         System.out.println("Lista de Ciudades:");
-        for (Ciudad ciudad : ciudades) {
-            System.out.println(ciudad);
-        }
+        System.out.println(ciudad);
+    }
+}
+public static void listarConstructoras() {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Ingrese el ID de la empresa para listar las constructoras: ");
+    String idEmpresa = scanner.nextLine();
+
+    Constructora constructora = Constructora.obtenerConstructora(idEmpresa);
+    if (constructora == null) {
+        System.out.println("No se encontró ninguna constructora con el ID de empresa proporcionado.");
+    } else {
+        System.out.println("Lista de Constructoras:");
+        System.out.println(constructora);
     }
 }
 
-public static void listarConstructoras() {
-    List<Constructora> constructoras = Constructora.obtenerConstructora();
-    if (constructoras.isEmpty()) {
-        System.out.println("No se han ingresado constructoras.");
-    } else {
-        System.out.println("Lista de Constructoras:");
-        for (Constructora constructora : constructoras) {
-            System.out.println(constructora);
-        }
-    }
-}
 
 public static void listarCasas() {
     List<Casa> casas = Casa.obtenerCasas();

@@ -65,7 +65,7 @@ public class Departamento {
                 String nombreBarrio = datos[4];
                 String nombreCiudad = datos[5];
                 String nombreConstructora = datos[6];
-                int idEmpresaConstructora = Integer.parseInt(datos[7]);
+                String idEmpresaConstructora = datos[7];
 
                 Propietario propietario = Propietario.obtenerPropietario(identificacionPropietario);
                 Barrio barrio = Barrio.obtenerBarrio(nombreBarrio);

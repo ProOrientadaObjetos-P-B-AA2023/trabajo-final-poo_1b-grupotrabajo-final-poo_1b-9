@@ -61,7 +61,7 @@ try (BufferedWriter writer = new BufferedWriter(new FileWriter("casas.dat", true
                 String nombreCiudad = datos[4];
                 int numeroCuartos = Integer.parseInt(datos[5]);
                 String nombreConstructora = datos[6];
-                int idEmpresaConstructora = Integer.parseInt(datos[7]);
+                String idEmpresaConstructora = datos[7];
 
                 Propietario propietario = Propietario.obtenerPropietario(identificacionPropietario);
                 Barrio barrio = Barrio.obtenerBarrio(nombreBarrio);
