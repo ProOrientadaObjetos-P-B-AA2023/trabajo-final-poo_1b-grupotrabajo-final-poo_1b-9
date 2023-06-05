@@ -42,10 +42,10 @@ public static Constructora obtenerConstructora(String idEmpresa) {
         while ((line = br.readLine()) != null) {
             String[] data = line.split(",");
             if (data.length == 2) {
-                String nombre = data[0];
+                String nombreC = data[0];
                 String idc = data[1];
                 if (idc.equals(idEmpresa)) {
-                    constructora = new Constructora(nombre, idc);
+                    constructora = new Constructora(nombreC, idc);
                     break;
                 }
             }
