@@ -6,7 +6,7 @@ import paquete05.Constructora;
 import paquete06.Casa;
 import paquete06.Departamento;
 import java.util.List;
-
+import java.util.Scanner;
 
 public class EjecutorInmobiliaria {
     public static void main(String[] args) {
